@@ -10,8 +10,12 @@ public class ObjectsMenu : MonoBehaviour
     [SerializeField] private Button thisButton;
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite highlightSprite;
+    private Animation anim;
     private bool f = false;
-    
+    private void Start()
+    {
+        anim = objectMenu.GetComponent<Animation>();
+    }
     public void OpenObjectsMenu() 
     {
         var actualsprite = thisButton.spriteState;
@@ -28,6 +32,7 @@ public class ObjectsMenu : MonoBehaviour
             thisButton.image.sprite = normalSprite;
             actualsprite.highlightedSprite = highlightSprite;
             thisButton.spriteState = actualsprite;
+            anim.Play();
             objectMenu.SetActive(true);
             f = true;
         }

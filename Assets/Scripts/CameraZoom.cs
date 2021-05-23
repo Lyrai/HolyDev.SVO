@@ -13,18 +13,32 @@ public class CameraZoom : MonoBehaviour
     {
         if (camera.orthographicSize > 30)
         {
-            camera.orthographicSize -= 10;
+            double zoom = camera.orthographicSize-10;
+            StartCoroutine(ZoomCameraIn(zoom));
         }
     }
     public void ZoomOut()
     {
         if (camera.orthographicSize < 150) 
-        { 
-            camera.orthographicSize += 10;
+        {
+            double zoom = camera.orthographicSize + 10;
+            StartCoroutine(ZoomCameraOut(zoom));
         }
     }
-    void Update()
+    IEnumerator ZoomCameraIn(double zoom) 
     {
-        
+        while (camera.orthographicSize > zoom) 
+        {
+            camera.orthographicSize -= 70 * Time.deltaTime;
+            yield return null;
+        }
+    }
+    IEnumerator ZoomCameraOut(double zoom) 
+    {
+        while (camera.orthographicSize < zoom)
+        {
+            camera.orthographicSize += 70 * Time.deltaTime;
+            yield return null;
+        }
     }
 }

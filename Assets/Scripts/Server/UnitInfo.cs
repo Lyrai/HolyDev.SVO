@@ -6,27 +6,12 @@ using UnityEngine;
 
 public class UnitInfo
 {
-    public int Id {get;}
-    public int Type {get;}
-    public double Lat {get;}
-    public double Lng {get;}
-    public bool IsFree {get;}
-
-    public UnitInfo(int id, int type, double lat, double lng, bool isFree)
-    {
-        Id = id;
-        Type = type;
-        Lat = lat;
-        Lng = lng;
-        IsFree = isFree;
-    }
-
-    public void Deconstruct(out int id, out int type, out double lat, out double lng, out bool isFree)
-    {
-        id = Id;
-        type = Type;
-        lat = Lat;
-        lng = Lng;
-        isFree = IsFree;
-    }
+    public int id {get; set; }
+    public int type {get; set; }
+    public double lat {get; set; }
+    public double lng {get; set; }
+    public bool status {get; set; }
+    public string date { get; set; }
+    public int user_type { get; set; }
+    public string username { get; set; }
 }

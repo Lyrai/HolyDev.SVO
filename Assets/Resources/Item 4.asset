@@ -33,3 +33,6 @@ MonoBehaviour:
         m_CallState: 2
   items: []
   window: {fileID: 4753107809112742694, guid: 32fd2791cda26cf44a46997c64a89a0b, type: 3}
+  lat: 37.836113
+  lng: 55.94759
+  orderType: 4

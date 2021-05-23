@@ -36,7 +36,10 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
             ContextMenuTracker.handler.DestroyMenu();
 
         ContextMenuTracker.SetMenuState(true, this);
-        menu.Create(position);
+        if(GetComponent<Map>() == null && int.TryParse(name[3].ToString(), out int n))
+            menu.Create(position, n);
+        else
+            menu.Create(position, CoordinatesContainer.instance.WorldToMapCoord(position));
         _isMenuActive = true;
     }
 

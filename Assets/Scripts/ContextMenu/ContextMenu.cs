@@ -10,7 +10,26 @@ public class ContextMenu : ScriptableObject
     [SerializeField] private RectTransform button;
     private GameObject[] _activeItems;
 
-    public void Create(Vector3 position)
+    public void Create(Vector3 position, int id)
+    {
+        Create(position);
+        for (var i = 0; i < items.Length; i++)
+        {
+            items[i].id = id;
+        }
+    }
+
+    public void Create(Vector3 position, Vector2 latlng)
+    {
+        Create(position);
+        for (var i = 0; i < items.Length; i++)
+        {
+            items[i].lat = latlng.x;
+            items[i].lng = latlng.y;
+        }
+    }
+    
+    private void Create(Vector3 position)
     {
         Vector3 buttonSize = button.sizeDelta;
         _activeItems = new GameObject[items.Length];
